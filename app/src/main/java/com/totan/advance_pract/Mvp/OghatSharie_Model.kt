@@ -7,12 +7,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class OghatSharie_Model(private val presenter: Contract.ParentPresenter) {
     fun getoghat(City: String, country: String) {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://api.aladhan.com/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val timings = retrofit.create(RetrofitInterface::class.java)
         timings.getTimings(City, country, 8).enqueue(object : Callback<AladhanResponseModel> {
