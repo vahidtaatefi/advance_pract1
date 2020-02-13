@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class OghatSharie_Model(private val presenter: Contract.ParentPresenter) {
     fun getoghat(City: String, country: String) {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.aladhan.com/v1/")
+                .baseUrl("http://api.aladhan.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val timings = retrofit.create(RetrofitInterface::class.java)

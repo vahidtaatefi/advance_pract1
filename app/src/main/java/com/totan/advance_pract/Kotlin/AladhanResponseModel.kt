@@ -1,8 +1,7 @@
 package com.totan.advance_pract.Kotlin
-
 data class AladhanResponseModel(
     val code: Int,
-    val data: Data,
+    val `data`: Data,
     val status: String
 )
 
