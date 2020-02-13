@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class TestKotlinRecyclerAdapter(
         val names: List<String>,
-        val clickListener: TestRecyclerClickListener
+        val clickListener: (String) -> Unit
 ) :
         RecyclerView.Adapter<TestKotlinRecyclerAdapter.TestKotlinRecyclerViewHolder>() {
 
@@ -26,14 +26,14 @@ class TestKotlinRecyclerAdapter(
 
     class TestKotlinRecyclerViewHolder(
             val item: View,
-            val clickListener: TestRecyclerClickListener
+            val clickListener: (String) -> Unit // TestRecyclerClickListener
     ) : RecyclerView.ViewHolder(item) {
 
 
         fun onBind(name: String) {
             item.txtName.text = name
             item.setOnClickListener {
-                clickListener.onClick(name)
+                clickListener(name)
             }
         }
     }
