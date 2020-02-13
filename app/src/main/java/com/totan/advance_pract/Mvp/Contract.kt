@@ -2,7 +2,7 @@ package com.totan.advance_pract.Mvp
 interface Contract {
 
     interface View {
-        fun getcity():String
+        fun getcitycountry(): Pair<String, String>
 
     }
 

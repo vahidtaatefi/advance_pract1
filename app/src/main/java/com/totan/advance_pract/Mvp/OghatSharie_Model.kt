@@ -10,19 +10,21 @@ import retrofit2.Retrofit
 
 
 class OghatSharie_Model(private val presenter: Contract.ParentPresenter) {
-    fun getoghat(City:String){
-        val retrofit=Retrofit.Builder()
-                .baseUrl("http://api.aladhan.com/v1/")
+    fun getoghat(City: String, country: String) {
+        val retrofit = Retrofit.Builder()
+                .baseUrl("https://api.aladhan.com/v1/")
                 .build()
-        val timings=retrofit.create(RetrofitInterface::class.java)
-        timings.getTimings("tehran","iran",8).enqueue(object :Callback<AladhanResponseModel>{
+        val timings = retrofit.create(RetrofitInterface::class.java)
+        timings.getTimings(City, country, 8).enqueue(object : Callback<AladhanResponseModel> {
             override fun onFailure(call: Call<AladhanResponseModel>, t: Throwable) {
-                Log.d("appEror",t.message)
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d("appEror", t.message)
+
             }
 
             override fun onResponse(call: Call<AladhanResponseModel>, response: Response<AladhanResponseModel>) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d("applog", response.body()?.data?.timings?.Maghrib)
+
+
             }
 
         }
