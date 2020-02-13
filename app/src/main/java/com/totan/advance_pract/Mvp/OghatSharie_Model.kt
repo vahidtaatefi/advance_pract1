@@ -17,7 +17,7 @@ class OghatSharie_Model(private val presenter: Contract.Presenter) {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val timings = retrofit.create(RetrofitInterface::class.java)
-        timings.getTimings(City, country, 8).enqueue(object : Callback<AladhanResponseModel> {
+        timings.getTimings("Tehran", "Iran", 8).enqueue(object : Callback<AladhanResponseModel> {
             override fun onFailure(call: Call<AladhanResponseModel>, t: Throwable) {
                 // Log.d("appEror", t.message)
                 presenter.onRetrofitResponse(false, null)
