@@ -10,7 +10,13 @@ import kotlinx.android.synthetic.main.activity_oghat_sharie.*
 
 class OghatSharie : AppCompatActivity(), Contract.View {
     override fun showPrayerTime(prayerTimings: Timings?) {
-        Log.d("applog", prayerTimings?.Maghrib)
+        txtFajr.text =  prayerTimings?.Fajr
+        txtSunrise.text = prayerTimings?.Sunrise
+        txtDhuhur.text = prayerTimings?.Dhuhr
+        txtSunset.text =  prayerTimings?.Sunset
+        txtMidnight.text = prayerTimings?.Midnight
+
+     //   Log.d("applog", prayerTimings?.Maghrib)
 
 
     }
