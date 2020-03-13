@@ -48,4 +48,4 @@
 
 ##---------------End: proguard configuration for Gson  ----------
 
--keep class com.sematec.android.advanced.dey98.pojo.** { *; }
+-keep class com.totan.advance_pract.Kotlin.** { *; }
