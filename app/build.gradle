@@ -6,6 +6,14 @@ def lifecycle_version = "2.2.0"
 // koin version
 def koin_version = "2.1.3"
 android {
+    signingConfigs {
+        release {
+            storeFile file('E:\\Key-Injection\\advance_pract`\\advance_pract\\advance_pract\\taatefi.jks')
+            storePassword '12344321'
+            keyAlias = 'taatefi2'
+            keyPassword '12344321'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -18,8 +26,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
 
     }
